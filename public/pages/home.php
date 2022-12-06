@@ -22,10 +22,10 @@
                 <td><?= $user->name; ?></td>
                 <td><?= $user->email; ?></td>
                 <td>
-                    <a href="/?page=edit_user&id=<?= $user->id;?>">Editar</a>
+                    <a href="/?page=edit_user&id=<?= $user->id;?>" class="btn btn-sucess">Editar</a>
                 </td>
                 <td>
-                    <a href="">Deletar</a>
+                    <a href="" class="btn btn-danger">Deletar</a>
                 </td>
             </tr>
         <?php endforeach; ?>
