@@ -33,7 +33,7 @@ function create($table,$fields) {
 function all($table){
     $pdo = connect();
 
-    $sql = "select * from {table}";
+    $sql = "select * from {$table}";
     $list = $pdo->query($sql);
     $list->execute();
     return $list->fetchAll();
