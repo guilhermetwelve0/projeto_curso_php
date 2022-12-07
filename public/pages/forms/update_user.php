@@ -12,23 +12,21 @@ if (isEmpty()) {
 
     flash('message', 'Preencha todos os campos');
 
-    return redirect("/edit_user&id={$id}");
+    return redirect("edit_user&id=".$id);
 }
 
 $validate = validate([
-    'id' => 's',
     'name' => 's',
     'sobrenome' => 's',
     'email' => 'e',
 ]);
 
-$atualizado = update('users', $validate);
+$atualizado = update('users', $validate,['id',$id]);
 
-//dd($cadastrado);
 
-// if ($atualizado) {
-//     flash('message', 'Atualizando com sucesso', 'success');
-//     return redirect('/edit_user&id={$id}');
-// }
-// flash('message', 'Erro ao atualizar');
-// redirect('/edit_user&id={$id}');
+if ($atualizado) {
+    flash('message', 'Atualizando com sucesso', 'success');
+    return redirect("edit_user&id=".$id);
+}
+flash('message', 'Erro ao atualizar');
+redirect("/edit_user&id=".$id);
