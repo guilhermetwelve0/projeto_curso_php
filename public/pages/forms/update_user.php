@@ -20,16 +20,15 @@ $validate = validate([
     'name' => 's',
     'sobrenome' => 's',
     'email' => 'e',
-    'password' => 's'
 ]);
 
 $atualizado = update('users', $validate);
 
 //dd($cadastrado);
 
-if ($atualizado) {
-    flash('message', 'Atualizando com sucesso', 'success');
-    return redirect('/edit_user&id={$id}');
-}
-flash('message', 'Erro ao atualizar');
-redirect('/edit_user&id={$id}');
+// if ($atualizado) {
+//     flash('message', 'Atualizando com sucesso', 'success');
+//     return redirect('/edit_user&id={$id}');
+// }
+// flash('message', 'Erro ao atualizar');
+// redirect('/edit_user&id={$id}');

@@ -39,7 +39,26 @@ function all($table){
     return $list->fetchAll();
 }
 
-function update() {}
+function update($table, $fields) {
+    
+    if (!is_array($fields)) {
+        $fields = (array)$fields;
+    }
+    
+    $pdo = connect();
+
+
+    $fields = array_map(function($field){
+          return "{$field} = :{$field}";
+    }, array_keys($fields));
+
+    $sql = "update {$table} set ";
+
+    $sql .=implode(",", $fields);
+
+     dd($sql);
+
+}
 
 function find($table,$field,$value) {
     $pdo = connect();

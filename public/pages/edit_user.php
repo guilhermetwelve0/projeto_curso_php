@@ -23,6 +23,8 @@ $user = find('users', 'id', $_GET['id']);
         <input type="text" class="form-control" name="email" placeholder="Input field" value="<?= $user->email ?>">
     </div>
 
+    
+
 
 
     <button type="submit" class="btn btn-primary">atualizar</button>
