@@ -88,7 +88,7 @@ function find($table,$field,$value) {
 function delete($table,$field,$value) {
     $pdo = connect();
 
-    $sql = "delete from {$table} where {$field}";
+    $sql = "delete from {$table} where {$field} = :{$field}";
     $delete = $pdo->prepare($sql);
     $delete->bindValue($field,$value);
     return $delete->execute();
